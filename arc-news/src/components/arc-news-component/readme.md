@@ -12,6 +12,7 @@
 | `abstract`  | `abstract`  |             | `string` | `undefined` |
 | `img`       | `img`       |             | `string` | `undefined` |
 | `link`      | `link`      |             | `string` | `undefined` |
+| `newsdate`  | `newsdate`  |             | `string` | `undefined` |
 | `newstitle` | `newstitle` |             | `string` | `undefined` |
 
 

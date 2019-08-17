@@ -1,4 +1,33 @@
-h1{
-    font-size: 16px;
-    color:green;
+.image-holder{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+}
+
+.data-holder{
+
+    span{
+        color:#ccc;
+        font-size: 12px;
+        font-weight: 300;
+    }
+    
+    h1{
+        font-size: 18px;
+        color:#333;
+        font-weight: 800;
+    }
+    
+    p{
+        font-size: 14px;
+        color:#333;
+        font-weight: 400;
+    }
+    
+    a{
+        font-size: 14px;
+        color:#333;
+        font-weight: 600; 
+    }
 }

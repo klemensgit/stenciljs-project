@@ -13,6 +13,7 @@ export namespace Components {
     'abstract': string;
     'img': string;
     'link': string;
+    'newsdate': string;
     'newstitle': string;
   }
   interface MyComponent {
@@ -56,6 +57,7 @@ declare namespace LocalJSX {
     'abstract'?: string;
     'img'?: string;
     'link'?: string;
+    'newsdate'?: string;
     'newstitle'?: string;
   }
   interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
