@@ -1,22 +1,27 @@
 import { Component, State, Prop, h } from '@stencil/core';
-//import { format } from '../../utils/utils';
+import $ from "jquery";
+import 'slick-carousel';
 
+//import * as $ from 'jquery'; // ne dela 
+//import { format } from '../../utils/utils';
+//declare var $ : any;
 
 @Component({
   tag: 'arc-news-component',
-  styleUrl: 'arc-news-component.scss',
+  styleUrls: ['arc-news-component.scss', 'slick.css']
   //shadow: true ce odkometiramo ne dela bootstrap ker ma nek svoj stil okrog komponente
 })
 export class ArcNewsComponent {
 
   @State() title: string;
+  @State() news = []; //state je spredaj zato da vsakic ko se vsebina news tabele spremeni ponovno nalozi komponenta sicer se vsebina ne prikaze vedno
+  
   todos=[{taskName:'Web',isCompleted:'no'}, {taskName:'Web1',isCompleted:'no1'}];
 
-  @State() news = [];
- 
+  @Prop() apiUrl: string;
   @Prop() img: string;
-  @Prop() newsdate: string;
-  @Prop() newstitle: string;
+  @Prop() newsDate: string;
+  @Prop() newsTitle: string;
   @Prop() abstract: string;
   @Prop() link: string;
 
@@ -25,17 +30,22 @@ export class ArcNewsComponent {
   }*/  
 
   componentWillLoad() {
-    fetch('http://localhost/stenciljs-testing/index.php?url=data')
+    fetch(this.apiUrl)
       .then(response => response.json())
       .then(data => {
         this.news = data;
         //console.log(this.news);
-      });
+      });  
   }
+
+  componentDidLoad(){
+    $('.single-item').slick();
+  }
+
 
   render() {
 
-    return[
+    return(
       /*<div class="row">
          {this.todos.map((todo) =>
             <div class="col-sm-12 col-md-4 col-lg-3">
@@ -50,13 +60,21 @@ export class ArcNewsComponent {
             </div> 
          )} 
       </div>*/
+
     <div class="container">
+
+      <div class="single-item">
+        <div>your content</div>
+        <div>your content</div>
+        <div>your content</div>
+      </div>
+
       <div class="row">
          {this.news.map((todo) =>
             <div class="col-sm-12 col-md-4 col-lg-3">
              <div class="image-holder" style={{'backgroundImage': 'url('+this.img+')'}}></div>
               <div class="data-holder">
-                  <span>{this.newsdate}</span>
+                  <span>{this.newsDate}</span>
                   <h1>{todo.title}</h1>
                   <p>{todo.content}</p>
                   <a href={this.link}>Read more</a>
@@ -66,7 +84,6 @@ export class ArcNewsComponent {
       </div>
     </div>
 
-      
      /* <div class="row">
       
         <div class="col-sm-12 col-md-4 col-lg-3">
@@ -81,6 +98,6 @@ export class ArcNewsComponent {
         </div> 
       
       </div>*/
-    ];
+    );
   }
 }

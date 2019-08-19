@@ -11,10 +11,11 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface ArcNewsComponent {
     'abstract': string;
+    'apiUrl': string;
     'img': string;
     'link': string;
-    'newsdate': string;
-    'newstitle': string;
+    'newsDate': string;
+    'newsTitle': string;
   }
   interface MyComponent {
     /**
@@ -55,10 +56,11 @@ declare global {
 declare namespace LocalJSX {
   interface ArcNewsComponent extends JSXBase.HTMLAttributes<HTMLArcNewsComponentElement> {
     'abstract'?: string;
+    'apiUrl'?: string;
     'img'?: string;
     'link'?: string;
-    'newsdate'?: string;
-    'newstitle'?: string;
+    'newsDate'?: string;
+    'newsTitle'?: string;
   }
   interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
     /**
